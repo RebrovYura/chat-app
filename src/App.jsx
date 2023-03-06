@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 const App = () => {
   return (
     <div className='min-w-[100vh] w-full'>
-      <Login/>
+      <Register/>
       {/* <Router>
         <Routes>
           <Route path='/' element={<Login />} />

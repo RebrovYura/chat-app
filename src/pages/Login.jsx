@@ -1,9 +1,4 @@
-import { useState } from 'react'
-
 const Login = () => {
-    const [show, setShow] = useState(false)
-    const handleShow = () => setShow(!show)
-
     return (
         <div className='form font-poppins bg-primary min-h-[100vh] flex justify-center items-center'>
             <div className='formWrapper bg-secondary px-[40px] py-[30px] rounded-[10px]'>
