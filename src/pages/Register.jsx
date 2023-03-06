@@ -3,7 +3,7 @@ import imgAdd from '../assets/icons/imageAdd.svg'
 const Register = () => {
   return (
     <div className='form font-poppins bg-primary min-h-[100vh] flex justify-center items-center'>
-      <div className='formWrapper bg-secondary px-[40px] py-[50px] rounded-[10px]'>
+      <div className='formWrapper bg-secondary px-[40px] py-[30px] rounded-[10px]'>
         <span className='uppercase text-text font-semibold text-center block mb-[20px] text-[22px]'>Sign up</span>
         <form action="" className='flex flex-col gap-[25px]'>
           <input type="text" placeholder='Username' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition'/>
