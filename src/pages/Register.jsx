@@ -4,7 +4,6 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from 'firebase/firestore'
 
 import { useState } from 'react'
-import imgAdd from '../assets/icons/imageAdd.svg'
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
