@@ -1,8 +1,16 @@
-import React from 'react'
+import UserMessageItem from './UserMessageItem'
+
 
 const ChatsList = () => {
   return (
-    <div>ChatsList</div>
+    <div className='flex flex-col justify-between'>
+      <div className='flex flex-col justify-start'>
+        <UserMessageItem />
+        <UserMessageItem />
+        <UserMessageItem />
+        <UserMessageItem />
+      </div>
+    </div>
   )
 }
 

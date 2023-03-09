@@ -1,11 +1,13 @@
 import Sidebar from '../components/Sidebar'
 import Chat from '../components/Chat'
+import SearchBar from '../components/SearchBar'
+import { theme } from '../theme/Theme'
 
 const Home = () => {
   return (
-    <div className='min-h-[100vh] bg-primary font-poppins'>
-      <div className='flex text-text'>
-        <div className='flex-[1]'>
+    <div className='min-h-[100vh] font-poppins'>
+      <div className='flex'>
+        <div className='flex-[1] flex-col px-[15px]'>
           <Sidebar />
         </div>
         <div className='flex-[3]'>

@@ -1,15 +1,13 @@
 import { extendTheme } from "@chakra-ui/react";
 
-const Theme = extendTheme({
+export const theme = extendTheme({
     colors: {
-        chakra: {
-            primary: '',
-            secondary: '',
-            accent: '#F4558D',
-            text: '#E8EBF6',
-            input: ''
+        brand: {
+            100: '#000000',
+            200: '#3D2645',
+            300: '#832161',
+            400: '#DA4167',
+            500: '#F0EFF4'
         }
-    }
+    },
 })
-
-export default Theme
