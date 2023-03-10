@@ -1,7 +1,6 @@
 import Sidebar from '../components/Sidebar'
 import Chat from '../components/Chat'
 import SearchBar from '../components/SearchBar'
-import { theme } from '../theme/Theme'
 
 const Home = () => {
   return (
