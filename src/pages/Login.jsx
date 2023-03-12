@@ -1,7 +1,7 @@
 import { auth } from '../data/firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
     
@@ -26,7 +26,7 @@ const Login = () => {
                     <button className='uppercase bg-accent rounded-[30px] text-text text-[16px] font-bold py-[10px]'>Sign in</button>
                 </form>
                 <div className='w-full h-[1px] bg-[#404557] mt-[25px] mb-[15px]'></div>
-                <p className='text-text font-regular text-center'>Don't have an account? <span className='text-accent font-bold'>Sign up</span></p>
+                <p className='text-text font-regular text-center'>Don't have an account? <Link to='/register' className='text-accent font-bold'>Sign up</Link></p>
             </div>
         </div>
     )

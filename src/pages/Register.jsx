@@ -1,12 +1,9 @@
-import { auth, storage, db } from "../data/firebase";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { doc, setDoc } from 'firebase/firestore'
-
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-import user from '../assets/images/user.png';
+import { auth, storage, db } from "../data/firebase";
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore'
 
 const Register = () => {
 
@@ -18,38 +15,17 @@ const Register = () => {
     const displayName = e.target[0].value
     const email = e.target[1].value
     const password = e.target[2].value
-    const file = e.target[3].files[0]
 
     try {
-      const metadata = {
-        contentType: 'image/jpeg'
-      };
-
-      const res = await createUserWithEmailAndPassword(auth, email, password)
-      const storageRef = ref(storage, 'images/' + displayName)
-      const uploadTask = uploadBytesResumable(storageRef, file, metadata)
-
-      uploadTask.on(
-        (error) => {
-          setError(true)
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await updateProfile(res.user, {
-              displayName,
-              photoURL: downloadURL
-            })
-            await setDoc(doc(db, "users", res.user.uid), {
-              uid: res.user.uid,
-              displayName,
-              email,
-              photoURL: downloadURL
-            })
-          });
-        }
-      );
-      // await setDoc(doc(db, "userChats", res.user.uid), {})
+      const res = createUserWithEmailAndPassword(auth, email, password)
+      await setDoc(doc(db, "users", (await res).user.uid), {
+        uid: (await res).user.uid,
+        name: displayName,
+        email: email
+      })
+      navigate('/')
     } catch (error) {
+      console.log(error)
       setError(true)
     }
   }
@@ -62,14 +38,14 @@ const Register = () => {
           <input type="text" placeholder='Username' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
           <input type="email" placeholder='Email' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
           <input type="password" placeholder='Password' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
-          <input type="file" name="" id="" />
+          {/* <input type="file" name="" id="" open/> */}
           <button className='uppercase bg-accent rounded-[30px] text-text text-[16px] font-bold py-[10px]'>Sign up</button>
         </form>
         {
           error && <span className="text-[red]">Something went wrong</span>
         }
         <div className='w-full h-[1px] bg-[#404557] mt-[25px] mb-[15px]'></div>
-        <p className='text-text font-regular text-center'>Already have an account? <span className='text-accent font-bold'>Sign in</span></p>
+        <p className='text-text font-regular text-center'>Already have an account? <Link to='/login' className='text-accent font-bold'>Sign in</Link></p>
       </div>
     </div>
   )
