@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 
-import { auth, storage, db } from "../data/firebase";
+import { auth, db } from "../data/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore'
 
@@ -18,9 +18,12 @@ const Register = () => {
 
     try {
       const res = createUserWithEmailAndPassword(auth, email, password)
+      updateProfile((await res).user, {
+        displayName: displayName
+      })
       await setDoc(doc(db, "users", (await res).user.uid), {
         uid: (await res).user.uid,
-        name: displayName,
+        displayName,
         email: email
       })
       navigate('/')

@@ -12,8 +12,12 @@ const Login = () => {
         const email = e.target[0].value
         const password = e.target[1].value
 
-        signInWithEmailAndPassword(auth, email, password)
-        navigate('/')
+        try {
+            signInWithEmailAndPassword(auth, email, password)
+            navigate('/')
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
