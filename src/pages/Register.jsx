@@ -39,18 +39,18 @@ const Register = () => {
       <div className='formWrapper bg-secondary px-[40px] py-[30px] rounded-[10px] max-w-[350px]'>
         <span className='uppercase text-text font-semibold text-center block mb-[20px] text-[22px]'>Sign up</span>
         <form onSubmit={handleSubmit} className='flex flex-col gap-[25px]'>
-          <input type="text" placeholder='Username' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
-          <input type="email" placeholder='Email' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
-          <input type="password" placeholder='Password' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
+          <input type="text" placeholder='Username' className='px-[10px] py-[8px] rounded-[8px] outline-none bg-primary focus:bg-[#25262A] transition' />
+          <input type="email" placeholder='Email' className='px-[10px] py-[8px] rounded-[8px] outline-none bg-primary focus:bg-[#25262A] transition' />
+          <input type="password" placeholder='Password' className='px-[10px] py-[8px] rounded-[8px] outline-none bg-primary focus:bg-[#25262A] transition' />
           {/* <input type="file" name="" id="" open/> */}
-          <button className='uppercase bg-accent rounded-[30px] text-text text-[16px] font-bold py-[10px]'>Sign up</button>
+          <button className='uppercase bg-active rounded-[30px] text-text text-[16px] font-bold py-[10px]'>Sign up</button>
         </form>
         {
-          error && <span className="text-[red]">Something went wrong</span>
+          error && <span className="text-accent">Something went wrong</span>
         }
         <div className='w-full h-[1px] bg-primary mt-[25px] mb-[15px]'></div>
         <span className='text-text font-regular text-center block md:inline'>Already have an account? </span>
-        <Link to='/login' className='text-accent font-bold hover:underline block md:inline text-center'>Sign in</Link>
+        <Link to='/login' className='text-active font-bold hover:underline block md:inline text-center'>Sign in</Link>
       </div>
     </div>
   )

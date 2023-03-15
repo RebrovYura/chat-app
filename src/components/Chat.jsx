@@ -1,23 +1,18 @@
-import React from 'react'
+import { useContext } from 'react'
+import { ChatContext } from '../context/ChatContext'
 import { Avatar } from '@chakra-ui/react'
-import { Input, InputGroup, Button } from '@chakra-ui/react'
+import MessageInput from './MessageInput'
 
 const Chat = () => {
+  const { data } = useContext(ChatContext)
+
   return (
-    <div className='flex flex-col justify-between h-full'>
-      <div className='bg-text text-center'>
-        <span>Username Surname</span>
+    <div className='text-text flex flex-col items-center py-[30px] justify-between min-h-[90vh]'>
+      <div>
+        messages        
       </div>
-      <div className='h-full'>
-        main
-      </div>
-      <div className='flex justify-center pb-[50px] pt-[20px]'>
-        <div className='w-[70%]'>
-          <InputGroup>
-            <Input placeholder='Enter your message...'/>
-            <Button width='100px' marginLeft='10px'>Send</Button>
-          </InputGroup>
-        </div>
+      <div className='w-[60%]'>
+        <MessageInput/>
       </div>
     </div>
   )
