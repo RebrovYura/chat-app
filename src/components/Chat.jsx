@@ -5,7 +5,7 @@ import { Input, InputGroup, Button } from '@chakra-ui/react'
 const Chat = () => {
   return (
     <div className='flex flex-col justify-between h-full'>
-      <div className='py-[15px] bg-text text-center'>
+      <div className='bg-text text-center'>
         <span>Username Surname</span>
       </div>
       <div className='h-full'>

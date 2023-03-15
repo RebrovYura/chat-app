@@ -28,9 +28,11 @@ const Login = () => {
                     <input type="email" placeholder='Email' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
                     <input type="password" placeholder='Password' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
                     <button className='uppercase bg-accent rounded-[30px] text-text text-[16px] font-bold py-[10px]'>Sign in</button>
+                    <span className='cursor-pointer text-text text-[14px] hover:underline text-center'>Forgot your password?</span>
                 </form>
-                <div className='w-full h-[1px] bg-[#404557] mt-[25px] mb-[15px]'></div>
-                <p className='text-text font-regular text-center'>Don't have an account? <Link to='/register' className='text-accent font-bold'>Sign up</Link></p>
+                <div className='w-full h-[1px] bg-primary mt-[25px] mb-[15px]'></div>
+                <span className='text-text font-regular text-center block md:inline'>Don't have an account? </span>
+                <Link to='/register' className='text-accent font-bold hover:underline block md:inline text-center'>Sign up</Link>
             </div>
         </div>
     )

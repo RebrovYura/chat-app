@@ -19,13 +19,14 @@ const Register = () => {
     try {
       const res = createUserWithEmailAndPassword(auth, email, password)
       updateProfile((await res).user, {
-        displayName: displayName
+        displayName: displayName,
       })
       await setDoc(doc(db, "users", (await res).user.uid), {
         uid: (await res).user.uid,
         displayName,
-        email: email
+        email: email,
       })
+      await setDoc(doc(db, "userChats", (await res).user.uid), {})
       navigate('/')
     } catch (error) {
       console.log(error)
@@ -47,8 +48,9 @@ const Register = () => {
         {
           error && <span className="text-[red]">Something went wrong</span>
         }
-        <div className='w-full h-[1px] bg-[#404557] mt-[25px] mb-[15px]'></div>
-        <p className='text-text font-regular text-center'>Already have an account? <Link to='/login' className='text-accent font-bold'>Sign in</Link></p>
+        <div className='w-full h-[1px] bg-primary mt-[25px] mb-[15px]'></div>
+        <span className='text-text font-regular text-center block md:inline'>Already have an account? </span>
+        <Link to='/login' className='text-accent font-bold hover:underline block md:inline text-center'>Sign in</Link>
       </div>
     </div>
   )

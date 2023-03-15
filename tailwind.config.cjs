@@ -7,14 +7,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#210024',
-        secondary: '#3D2645',
-        active: '#DA4167',
-        accent: '#832161',
-        text: '#F0EFF4'
+        primary: '#1E1F22',
+        secondary: '#313338',
+        active: '#06D6A0',
+        accent: '#EF476F',
+        text: '#EEEFF0'
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif']
+      },
+      boxShadow: {
+        'buttonShadow': '0px 0px 10px rgba(0, 0, 0, 0.25)',
       }
     },
   },

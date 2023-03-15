@@ -1,15 +1,16 @@
-import { Avatar, Button, chakra } from '@chakra-ui/react'
-import { SmallCloseIcon } from '@chakra-ui/icons'
-import { theme } from '../theme/Theme';
+import { Avatar } from '@chakra-ui/react'
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = (props) => {
+  const {currentUser} = useContext(AuthContext)
+
   return (
     <div className='py-[15px]'>
-      <div className='flex items-center'>
-        <Avatar size='lg' bg='red.500'/>
-        <div className='flex flex-col ml-[15px]'>
-          <span className='font-semibold'>{props.name}</span>
-          <span className='font-extralight'>{props.email}</span>
+      <div className='flex flex-col items-center justify-center'>
+        <Avatar size='2xl' bg='gray.500'/>
+        <div className='mt-[15px]'>
+          <span className='font-semibold text-text text-[24px]'>{currentUser.displayName}</span>
         </div>
       </div>
     </div>
