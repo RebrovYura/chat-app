@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { Input, InputGroup, InputLeftElement, Avatar, Button } from '@chakra-ui/react'
 import { SearchIcon, StarIcon } from '@chakra-ui/icons'
 import { db } from '../data/firebase'
-import { collection, query, where, getDocs } from 'firebase/firestore'
+import { collection, query, where, getDocs, updateDoc, serverTimestamp, setDoc, getDoc, doc } from 'firebase/firestore'
 import ChatsList from './ChatsList'
 import { AuthContext } from '../context/AuthContext'
 
@@ -26,17 +26,36 @@ const SearchBar = () => {
   }
 
   const handleSelect = async () => {
-    const combinedId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid
+    const combinedId = currentUser.uid > user.uid
+      ? currentUser.uid + user.uid
+      : user.uid + currentUser.uid
     try {
-      const res = await getDocs(db, "chats", combinedId)
-      if (!res.exists()) {
-        await setDoc(doc, (db, "chats", combinedId), {messages: []})
-      } else {
+      const res = await getDoc(doc(db, "chats", combinedId))
 
+      if (!res.exists()) {
+        await setDoc(doc(db, "chats", combinedId), { messages: [] })
+
+        await updateDoc(doc(db, "userChats", currentUser.uid), {
+          [combinedId + '.userInfo']: {
+            uid: user.uid,
+            displayName: user.displayName,
+            //photoURL: user.photoURL
+          },
+          [combinedId + ".date"]: serverTimestamp()
+        })
+        await updateDoc(doc(db, "userChats", user.uid), {
+          [combinedId + '.userInfo']: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName,
+            //photoURL: currentUser.photoURL
+          },
+          [combinedId + ".date"]: serverTimestamp()
+        })
       }
-    } catch(error) {
-      setError(true)
+    } catch (error) {
+      console.log(error)
     }
+    setUser(null)
   }
 
   return (
@@ -44,7 +63,16 @@ const SearchBar = () => {
       <span className='font-bold text-[24px] text-text'>Find some friends! 🖐</span>
       <InputGroup className='mt-[10px]'>
         <InputLeftElement children={<SearchIcon color='gray' />} />
-        <Input variant='filled' placeholder='Enter username...' bg='#313338' color='#EEEFF0' outline='none' _focus={{ background: '#313338' }} _hover={{background: '#313338'}} onKeyPress={handleSearch} onChange={(e) => setUsername(e.target.value)} />
+        <Input 
+        variant='filled' 
+        placeholder='Enter username...' 
+        bg='#313338' 
+        color='#EEEFF0' 
+        outline='none' 
+        _focus={{ background: '#313338' }} 
+        _hover={{ background: '#313338' }} 
+        onKeyPress={handleSearch} 
+        onChange={(e) => setUsername(e.target.value)}/>
       </InputGroup>
       <div className='flex flex-col justify-between'>
         <div className='flex flex-col justify-start'>

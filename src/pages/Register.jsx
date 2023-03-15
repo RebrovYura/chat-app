@@ -36,7 +36,7 @@ const Register = () => {
 
   return (
     <div className='form font-poppins bg-primary min-h-[100vh] flex justify-center items-center'>
-      <div className='formWrapper bg-secondary px-[40px] py-[30px] rounded-[10px]'>
+      <div className='formWrapper bg-secondary px-[40px] py-[30px] rounded-[10px] max-w-[350px]'>
         <span className='uppercase text-text font-semibold text-center block mb-[20px] text-[22px]'>Sign up</span>
         <form onSubmit={handleSubmit} className='flex flex-col gap-[25px]'>
           <input type="text" placeholder='Username' className='px-[10px] py-[8px] rounded-[8px] outline-none focus:bg-text transition' />
