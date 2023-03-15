@@ -1,10 +1,12 @@
 import { useRef, useState } from 'react'
 import { Button, Divider, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, Drawer, useDisclosure, DrawerOverlay, DrawerFooter } from '@chakra-ui/react'
 import { HamburgerIcon, ArrowBackIcon } from '@chakra-ui/icons'
-import Navbar from './Navbar'
-import SearchBar from './SearchBar'
 import { auth } from '../data/firebase'
 import { signOut } from 'firebase/auth'
+
+import Navbar from './Navbar'
+import SearchBar from './SearchBar'
+import ChatsList from './ChatsList'
 
 const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -30,6 +32,7 @@ const Sidebar = () => {
             </DrawerHeader>
             <DrawerBody className='bg-primary'>
               <SearchBar />
+              <ChatsList/>
             </DrawerBody>
             <DrawerFooter justifyContent='center' className='bg-primary'>
               <Button variant='outline' border='2px solid' borderColor='#EF476F' color='#EF476F' _hover={{ background: '#EF476F', color: 'white' }} onClick={() => signOut(auth)}>Logout</Button>
