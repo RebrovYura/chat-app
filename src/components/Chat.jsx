@@ -7,11 +7,14 @@ const Chat = () => {
   const { data } = useContext(ChatContext)
 
   return (
-    <div className='text-text flex flex-col items-center py-[30px] justify-between min-h-[90vh]'>
-      <div>
+    <div className='text-text flex flex-col items-center justify-between h-full'>
+      <div className='py-[10px]'>
+        <p className='font-bold text-[20px] text-active'>{data.user.displayName || 'Select user'}</p>
+      </div>
+      <div className='h-full w-full'>
         messages        
       </div>
-      <div className='w-[60%]'>
+      <div className=''>
         <MessageInput/>
       </div>
     </div>

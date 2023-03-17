@@ -9,19 +9,16 @@ const Home = () => {
   const { data } = useContext(ChatContext)
 
   return (
-    <div className='min-h-[100vh] font-poppins bg-primary'>
-      <div className='flex items-center pt-[10px] px-[10px]'>
+    <div className='min-h-[100vh] font-poppins bg-primary flex justify-between text-text'>
+      <div className='w-full lg:max-w-[400px] lg:shadow-buttonShadow'>
         <Sidebar />
-        <div className='text-text w-full flex justify-center'>
-          <span className='text-[24px] font-bold text-active'>{data.user.displayName || 'Select friend'}</span>
-        </div>
-        <div className='rounded-[10px] shadow-buttonShadow'>
-          <Button bg='transparent' className='text-text' width='50px' height='50px' _hover={{ background: 'transparent' }}><Icon as={BsThreeDotsVertical} boxSize={6} /></Button>
-        </div>
       </div>
-      <Chat />
-      {/*  */}
-
+      <div className='w-full'>
+        <Chat />
+      </div>
+      <div className='w-full max-w-[400px] text-right '>
+        <Button bg='transparent' className='text-text shadow-buttonShadow' width='50px' height='50px' _hover={{ background: 'transparent' }}><Icon as={BsThreeDotsVertical} boxSize={6} /></Button>
+      </div>
     </div>
   )
 }

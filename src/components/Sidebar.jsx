@@ -13,9 +13,18 @@ const Sidebar = () => {
   const btnRef = useRef()
 
   return (
-    <div>
-
-      <div className='bg-secondary rounded-[10px] shadow-buttonShadow w-[50px] h-[50px] flex items-center'>
+    <div className='pt-[10px] pl-[10px]'>
+      <div className='text-text h-full mx-[10px] lg:flex flex-col justify-between py-[20px] hidden '>
+        <Navbar />
+        <SearchBar />
+        <div className='h-full'>
+          <ChatsList />
+        </div>
+        <div className='text-center'>
+          <Button variant='outline' border='2px solid' borderColor='#EF476F' color='#EF476F' _hover={{ background: '#EF476F', color: 'white' }} onClick={() => signOut(auth)}>Logout</Button>
+        </div>
+      </div>
+      <div className='bg-secondary rounded-[10px] shadow-buttonShadow w-[50px] h-[50px] flex items-center lg:hidden'>
         <Button ref={btnRef} onClick={onOpen} bg='transparent' className='text-text' _hover={{ background: '#313338' }}><HamburgerIcon boxSize={6} /></Button>
         <Drawer
           isOpen={isOpen}
@@ -24,7 +33,7 @@ const Sidebar = () => {
           finalFocusRef={btnRef}
           size='sm'
         >
-          <DrawerOverlay/>
+          <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton className='text-text' width='40px' height='40px'><ArrowBackIcon boxSize={9} /></DrawerCloseButton>
             <DrawerHeader className='bg-primary'>
@@ -32,7 +41,7 @@ const Sidebar = () => {
             </DrawerHeader>
             <DrawerBody className='bg-primary'>
               <SearchBar />
-              <ChatsList/>
+              <ChatsList />
             </DrawerBody>
             <DrawerFooter justifyContent='center' className='bg-primary'>
               <Button variant='outline' border='2px solid' borderColor='#EF476F' color='#EF476F' _hover={{ background: '#EF476F', color: 'white' }} onClick={() => signOut(auth)}>Logout</Button>

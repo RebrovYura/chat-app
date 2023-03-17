@@ -8,7 +8,7 @@ const Navbar = (props) => {
   return (
     <div className='py-[15px]'>
       <div className='flex flex-col items-center justify-center'>
-        <Avatar size='2xl' bg='gray.500'/>
+        <Avatar size='2xl' bg='gray.500' name={currentUser.displayName}/>
         <div className='mt-[15px]'>
           <span className='font-semibold text-text text-[24px]'>{currentUser.displayName}</span>
         </div>

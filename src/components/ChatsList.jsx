@@ -29,7 +29,7 @@ const ChatsList = () => {
   return (
     <div>
       {Object.entries(chats)?.map((chat) => (
-        <div key={chat[0]} className='flex text-text items-center hover:bg-secondary transition-all p-[10px] rounded-[5px]' onClick={() => handleSelect(chat[1].userInfo)}>
+        <div key={chat[0]} className='flex text-text items-center hover:bg-secondary transition-all p-[10px] rounded-[5px] cursor-pointer' onClick={() => handleSelect(chat[1].userInfo)}>
           <Avatar size='md' name={chat[1].userInfo.displayName}/>
           <div className='flex flex-col ml-[15px]'>
             {console.log(chat[1].userInfo.displayName)}
