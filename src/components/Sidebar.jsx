@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Button, Divider, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, Drawer, useDisclosure, DrawerOverlay, DrawerFooter } from '@chakra-ui/react'
+import { Button, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, Drawer, useDisclosure, DrawerOverlay, DrawerFooter } from '@chakra-ui/react'
 import { HamburgerIcon, ArrowBackIcon } from '@chakra-ui/icons'
 import { auth } from '../data/firebase'
 import { signOut } from 'firebase/auth'

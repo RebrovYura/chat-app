@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { ChatContext } from '../context/ChatContext'
 import { Avatar } from '@chakra-ui/react'
 import MessageInput from './MessageInput'
+import Messages from './Messages'
 
 const Chat = () => {
   const { data } = useContext(ChatContext)
@@ -12,10 +13,10 @@ const Chat = () => {
         <p className='font-bold text-[20px] text-active'>{data.user.displayName || 'Select user'}</p>
       </div>
       <div className='h-full w-full'>
-        messages        
+        <Messages />
       </div>
-      <div className=''>
-        <MessageInput/>
+      <div className='mb-[15px]'>
+        <MessageInput />
       </div>
     </div>
   )
