@@ -80,7 +80,7 @@ const SearchBar = () => {
             <div className='flex items-center'>
               <Avatar name={user.displayName} size='md' />
               <div className='flex flex-col ml-[15px]'>
-                <span className='font-semibold text-text'>{user.displayName}</span>
+                <span className='font-semibold text-white'>{user.displayName}</span>
               </div>
             </div>
             {/* <Button bg='transparent' variant='ghost'><StarIcon color='lightgray' /></Button> */}
