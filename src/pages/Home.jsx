@@ -12,9 +12,9 @@ const Home = () => {
   return (
     <div className='min-h-[100vh] font-poppins bg-primary'>
       <div className='flex relative'>
-        <div className={`${isOpen ? 'absolute z-[1] min-h-[100vh] min-w-[100vw] bg-black opacity-60' : 'hidden'} `} onClick={handleClick} />
-        <div className={`${isOpen ? 'absolute z-[2]' : 'hidden'} md:block`} >
-          <Sidebar />
+        <div className={`${isOpen ? 'absolute z-[1] min-h-[100vh] min-w-[100vw] bg-black opacity-60' : 'hidden'} md:hidden`} onClick={handleClick} />
+        <div className={`${isOpen ? 'absolute z-[2]' : 'hidden'} md:block md:static`} >
+          <Sidebar handleClick={handleClick}/>
         </div>
         <Chat handleClick={handleClick} />
       </div>

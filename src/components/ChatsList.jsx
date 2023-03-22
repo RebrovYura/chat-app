@@ -52,7 +52,7 @@ import { db } from '../data/firebase'
 import { ChatContext } from '../context/ChatContext'
 import ChatListItem from './ChatListItem'
 
-const ChatsList = () => {
+const ChatsList = ({handleClick}) => {
   const [chats, setChats] = useState([])
   const { currentUser } = useContext(AuthContext)
   const { dispatch } = useContext(ChatContext)
@@ -61,7 +61,6 @@ const ChatsList = () => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, 'userChats', currentUser.uid), (doc) => {
         setChats(doc.data())
-        console.log(doc.data())
       })
       return () => {
         unsub()
@@ -72,7 +71,6 @@ const ChatsList = () => {
 
   const handleSelect = (user) => {
     dispatch({ type: 'CHANGE_USER', payload: user })
-    console.log(user)
   }
 
   return (
@@ -84,7 +82,7 @@ const ChatsList = () => {
       </div>
       <div className='max-h-[70vh] overflow-auto overflow-x-hidden scrollbar scrollbar-thin scrollbar-track-input scrollbar-track-rounded-[5px] scrollbar-thumb-text scrollbar-thumb-rounded-[5px]'>
         {Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
-          <ChatListItem key={chat[0]} handleSelect={() => handleSelect(chat[1].userInfo)} name={chat[1].userInfo.displayName} lastMessage={chat[1].lastMessage?.text}/>
+          <ChatListItem key={chat[0]} handleSelect={() => handleSelect(chat[1].userInfo)} handleClick={handleClick} name={chat[1].userInfo.displayName} lastMessage={chat[1].lastMessage?.text}/>
         ))}
       </div>
     </div>

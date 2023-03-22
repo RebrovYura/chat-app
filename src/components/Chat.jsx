@@ -34,7 +34,7 @@ const Chat = ({handleClick}) => {
     <div className='grow-[3] min-h-[100vh] flex flex-col justify-between'>
       <div className='h-full'>
         <ChatHeader handleClick={handleClick} />
-        <div className='flex justify-center'>
+        <div>
           <Messages />
         </div>
       </div>
