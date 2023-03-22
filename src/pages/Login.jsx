@@ -30,7 +30,7 @@ const Login = () => {
                     <button className='uppercase bg-button rounded-[30px] text-white text-[16px] font-bold py-[10px]'>Sign in</button>
                     <span className='cursor-pointer text-text text-[14px] hover:underline text-center'>Forgot your password?</span>
                 </form>
-                <div className='w-full h-[1px] bg-primary mt-[25px] mb-[15px]'></div>
+                <div className='w-full h-[1px] bg-primary mt-[25px] mb-[15px]'/>
                 <span className='text-text font-regular text-center block md:inline'>Don't have an account? </span>
                 <Link to='/register' className='font-bold hover:underline block md:inline text-center'>Sign up</Link>
             </div>

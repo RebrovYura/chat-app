@@ -47,7 +47,7 @@ const Register = () => {
         {
           error && <span className="text-accent">Something went wrong</span>
         }
-        <div className='w-full h-[1px] bg-primary mt-[25px] mb-[15px]'></div>
+        <div className='w-full h-[1px] bg-primary mt-[25px] mb-[15px]'/>
         <span className='text-text font-regular text-center block md:inline'>Already have an account? </span>
         <Link to='/login' className='text-active font-bold hover:underline block md:inline text-center'>Sign in</Link>
       </div>
