@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./index.html",
@@ -6,21 +7,21 @@ module.exports = {
   mode: 'jit',
   theme: {
     extend: {
-      colors: {
-        primary: '#1E1F22',
-        secondary: '#313338',
-        active: '#06D6A0',
-        accent: '#EF476F',
-        text: '#EEEFF0'
-      },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif']
       },
+      colors: {
+        primary: '#E8E9EA',
+        secondary: '#292536',
+        text: '#675C7C',
+        input: '#352C46'
+      },
       boxShadow: {
+        'headerShadow': '0px 5px 10px rgba(0, 0, 0, 0.05)',
+        'containerYShadow': 'inset 0px 10px 4px #292536, inset 0px -10px 10px #292536',
         'buttonShadow': '0px 0px 10px rgba(0, 0, 0, 0.25)',
-        'containerShadow': '0px 0px 20px 10px rgba(176, 176, 176, 0.2)',
       }
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')({ nocompatible: true })],
 }

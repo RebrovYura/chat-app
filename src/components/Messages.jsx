@@ -23,11 +23,7 @@ const Messages = () => {
   return (
     <div className='text-text block'>
       {messages.map((message) => (
-        <div className='flex flex-col font-normal text-[18px]'>
-          <div className='py-[10px]' key={message.id}>
-            {message.text}
-          </div>
-        </div>
+        <Message message={message} key={message.id}/>
       ))}
     </div>
   )

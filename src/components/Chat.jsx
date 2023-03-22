@@ -12,7 +12,7 @@ const Chat = () => {
       <div className='py-[10px]'>
         <p className='font-bold text-[20px] text-active'>{data.user.displayName || 'Select user'}</p>
       </div>
-      <div className='h-full w-full'>
+      <div className='h-full w-full overflow-scroll'>
         <Messages />
       </div>
       <div className='mb-[15px]'>
