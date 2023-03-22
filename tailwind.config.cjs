@@ -14,7 +14,8 @@ module.exports = {
         primary: '#E8E9EA',
         secondary: '#292536',
         text: '#675C7C',
-        input: '#352C46'
+        input: '#352C46',
+        button: '#06d6a0'
       },
       boxShadow: {
         'headerShadow': '0px 5px 10px rgba(0, 0, 0, 0.05)',

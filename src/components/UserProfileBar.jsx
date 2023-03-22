@@ -4,6 +4,9 @@ import { BiExit } from 'react-icons/bi'
 import {IoMdSettings} from 'react-icons/io'
 import avatar from '../assets/images/scale.jpg'
 
+import { auth } from '../data/firebase'
+import { signOut } from 'firebase/auth'
+
 const UserProfileBar = () => {
   return (
     <div className='flex justify-between bg-input px-[25px] py-[8px]'>
@@ -13,7 +16,7 @@ const UserProfileBar = () => {
       </div>
       <div className='flex items-center'>
         <a className='mr-[22px] cursor-pointer'><IoMdSettings size='25px' className='text-text'/></a>
-        <a className='cursor-pointer'><BiExit size='25px' color='#EF476F'/></a>
+        <a className='cursor-pointer' onClick={() => signOut(auth)}><BiExit size='25px' color='#EF476F'/></a>
       </div>
     </div>
   )
