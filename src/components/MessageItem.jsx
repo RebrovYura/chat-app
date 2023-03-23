@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import { Avatar } from '@chakra-ui/react'
-import avatar from '../assets/images/scale.jpg'
 import { AuthContext } from '../context/AuthContext'
 import { ChatContext } from '../context/ChatContext'
 

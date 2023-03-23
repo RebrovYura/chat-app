@@ -83,7 +83,6 @@ const SearchBar = () => {
                 <span className='font-semibold text-white'>{user.displayName}</span>
               </div>
             </div>
-            {/* <Button bg='transparent' variant='ghost'><StarIcon color='lightgray' /></Button> */}
           </div>}
           {user && <Divider/>}
         </div>
