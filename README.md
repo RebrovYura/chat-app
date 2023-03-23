@@ -1,5 +1,9 @@
 # Welcome to the Chat App!
 
+Main page
+
+<img width='850px' src='./docs/main.png'/>
+
 # This project has the following features:
  - Login/Register an account;
  - Find friends using search;
